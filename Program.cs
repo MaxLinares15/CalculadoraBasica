@@ -6,14 +6,22 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenido a la Calculadora Básica en C#");
-            Console.WriteLine("Seleccione una operación:");
+            Console.WriteLine("===============================================");
+            Console.WriteLine("           Bienvenido a la Calculadora          ");
+            Console.WriteLine("===============================================");
+            Console.WriteLine("Seleccione una de las siguientes operaciones:");
             Console.WriteLine("1. Suma");
             Console.WriteLine("2. Resta");
             Console.WriteLine("3. Multiplicación");
             Console.WriteLine("4. División");
-            Console.Write("Ingrese su opción: ");
+            Console.WriteLine("5. Potenciación");
+            Console.WriteLine("6. Módulo");
+            Console.WriteLine("===============================================");
+
+            Console.Write("Ingrese su opción (1-6): ");
             int opcion = int.Parse(Console.ReadLine()!);
+            Console.WriteLine("\n¡Gracias por usar la calculadora! Sigamos...");
+         
 
             Console.Write("Ingrese el primer número: ");
             double num1 = double.Parse(Console.ReadLine()!);
