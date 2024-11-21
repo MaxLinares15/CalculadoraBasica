@@ -16,10 +16,26 @@ namespace CalculadoraBasica
             int opcion = int.Parse(Console.ReadLine()!);
 
             Console.Write("Ingrese el primer número: ");
-            double num1 = double.Parse(Console.ReadLine()!);
+            if (!double.TryParse(Console.ReadLine(), out double num1))
+            {
+                Console.WriteLine("Error: Debe ingresar un número válido.");
+                return;
+            }
 
             Console.Write("Ingrese el segundo número: ");
-            double num2 = double.Parse(Console.ReadLine()!);
+            if (!double.TryParse(Console.ReadLine(), out double num2))
+            {
+                Console.WriteLine("Error: Debe ingresar un número válido.");
+                return;
+            }
+
+            if (opcion == 4 && num2 == 0)
+            {
+                Console.WriteLine("Error: No se puede dividir entre 0.");
+                return;
+            }
+
+            Console.WriteLine("Validaciones completas. ¡Listo para operar!");
 
             double resultado = 0;
             switch (opcion)
