@@ -6,66 +6,72 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenido a la Calculadora Básica en C#");
-            Console.WriteLine("Seleccione una operación:");
+
+            Console.WriteLine("===============================================");
+            Console.WriteLine("           Bienvenido a la Calculadora          ");
+            Console.WriteLine("===============================================");
+            Console.WriteLine("Seleccione una de las siguientes operaciones:");
             Console.WriteLine("1. Suma");
             Console.WriteLine("2. Resta");
             Console.WriteLine("3. Multiplicación");
             Console.WriteLine("4. División");
-            Console.Write("Ingrese su opción: ");
+            Console.WriteLine("5. Potenciación");
+            Console.WriteLine("6. Módulo");
+            Console.WriteLine("===============================================");
+
+            Console.Write("Ingrese su opción (1-6): ");
             int opcion = int.Parse(Console.ReadLine()!);
-
-            Console.Write("Ingrese el primer número: ");
-            if (!double.TryParse(Console.ReadLine(), out double num1))
-            {
-                Console.WriteLine("Error: Debe ingresar un número válido.");
-                return;
-            }
-
-            Console.Write("Ingrese el segundo número: ");
-            if (!double.TryParse(Console.ReadLine(), out double num2))
-            {
-                Console.WriteLine("Error: Debe ingresar un número válido.");
-                return;
-            }
-
-            if (opcion == 4 && num2 == 0)
-            {
-                Console.WriteLine("Error: No se puede dividir entre 0.");
-                return;
-            }
-
-            Console.WriteLine("Validaciones completas. ¡Listo para operar!");
-
             double resultado = 0;
-            switch (opcion)
+
+            if (opcion >= 1 && opcion <= 4)
             {
-                case 1:
-                    resultado = num1 + num2;
-                    Console.WriteLine($"Resultado: {num1} + {num2} = {resultado}");
-                    break;
-                case 2:
-                    resultado = num1 - num2;
-                    Console.WriteLine($"Resultado: {num1} - {num2} = {resultado}");
-                    break;
-                case 3:
-                    resultado = num1 * num2;
-                    Console.WriteLine($"Resultado: {num1} * {num2} = {resultado}");
-                    break;
-                case 4:
-                    if (num2 != 0)
-                    {
-                        resultado = num1 / num2;
-                        Console.WriteLine($"Resultado: {num1} / {num2} = {resultado}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error: No se puede dividir entre cero.");
-                    }
-                    break;
-                default:
-                    Console.WriteLine("Opción no válida.");
-                    break;
+                Console.Write("Ingrese el primer número: ");
+                double num1 = double.Parse(Console.ReadLine()!);
+
+                Console.Write("Ingrese el segundo número: ");
+                double num2 = double.Parse(Console.ReadLine()!);
+
+                switch (opcion)
+                {
+                    case 1:
+                        resultado = num1 + num2;
+                        Console.WriteLine($"Resultado: {num1} + {num2} = {resultado}");
+                        break;
+                    case 2:
+                        resultado = num1 - num2;
+                        Console.WriteLine($"Resultado: {num1} - {num2} = {resultado}");
+                        break;
+                    case 3:
+                        resultado = num1 * num2;
+                        Console.WriteLine($"Resultado: {num1} * {num2} = {resultado}");
+                        break;
+                    case 4:
+                        if (num2 != 0)
+                        {
+                            resultado = num1 / num2;
+                            Console.WriteLine($"Resultado: {num1} / {num2} = {resultado}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: No se puede dividir entre cero.");
+                        }
+                        break;
+                }
+            }
+            else if (opcion == 5)
+            {
+                Console.Write("Ingrese la base: ");
+                double baseNum = double.Parse(Console.ReadLine()!);
+
+                Console.Write("Ingrese el exponente: ");
+                double exponente = double.Parse(Console.ReadLine()!);
+
+                resultado = Math.Pow(baseNum, exponente);
+                Console.WriteLine($"Resultado: {baseNum} ^ {exponente} = {resultado}");
+            }
+            else
+            {
+                Console.WriteLine("Opción no válida.");
             }
         }
     }
