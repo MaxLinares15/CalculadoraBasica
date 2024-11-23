@@ -6,6 +6,7 @@ namespace CalculadoraBasica
     {
         static void Main(string[] args)
         {
+
             while (true)
             {
                 Console.WriteLine("\n===============================================");
@@ -66,8 +67,8 @@ namespace CalculadoraBasica
                             break;
                     }
                 }
-               
-                else if(opcion == 5)
+
+                else if (opcion == 5)
                 {
                     // Raíz cuadrada
                     Console.Write("Ingrese el número para calcular la raíz cuadrada: ");
@@ -87,6 +88,7 @@ namespace CalculadoraBasica
                 {
                     Console.WriteLine("Opción no válida.");
                 }
+
             }
         }
     }
